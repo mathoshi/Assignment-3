@@ -36,7 +36,8 @@ toppingFourButton:setFillColor( 198/255, 46/255, 43 /255)
 
 local calculateButton = display.newRect( 160, 400, 80, 50)
 
-
+local size = ""
+local toppings = 0
 --------------------------------------------------------------
 -- Will assign values to the variable if button is clicked
 --------------------------------------------------------------
@@ -45,19 +46,17 @@ local calculateButton = display.newRect( 160, 400, 80, 50)
 
 local largeTouch function Assign1( event )
 	
-		largeTouch = 6
-		print(largeTouch)
+	size = "large"
 
-		return true
+	return true
 end
 
 -- Extra-large Button
 
 local extralargeTouch function Assign2( event )
 
-	extralargeTouch = 10
-	print(extralargeTouch)
-
+	size = "extralarge"
+	
 	return true
 
 end
@@ -66,8 +65,7 @@ end
 
 local toppingOneTouch function Assign3( event )
 
-	toppingOneTouch = 1 
-	print(toppingOneTouch)
+	toppings = 1 
 
 	return true
 
@@ -77,8 +75,7 @@ end
 
 local toppingTwoTouch function Assign4( event )
 
-	toppingTwoTouch = 1.75
-	print(toppingTwoTouch)
+	toppings = 1.75
 
 	return true
 
@@ -89,8 +86,8 @@ end
 
 local toppingThreeTouch function Assign5( event )
 
-	toppingThreeTouch = 2.5
-	print(toppingThreeTouch)
+	toppings = 2.5
+	
 
 	return true
 
@@ -101,64 +98,75 @@ end
 
 local toppingFourTouch function Assign6( event )
 
-	toppingFourTouch = 3.35
-	print(toppingFourTouch)
+	toppings = 3.35
 
 	return true
 
 end
 
 
+-- Calculate function for every possible selection
+
 local Calculations function Calculate( event )
 
-	if (largeTouch == 6 and toppingOneTouch == 1) then
+		print ("Size selected is: ".. size)
+		print ("Toppings selected are: ".. toppings)
+
+		if (size == "large") then
+
+			subtotal = 6
+
+			elseif (size == "extralarge") then
+							subtotal = 10
+
+						else
+							print ("don't be a dope.  pick something.")
+
+		end
+
+
+if (toppings == 1) then
+	subtotal += 1
+	elseif (toppings == 1.75) then
+		subtotal += 1.75
+	elseif (toppings == 2.50) then
+		subtotal += 2.5
+	elseif (toppings == 3.35) then
+
+
+
+
+		if (largeTouch == 6 and toppingOneTouch == 1) then
+			local Subtotal 
+			Subtotal = largeTouch + toppingOneTouch
+			print(Subtotal)
+
+			return true
 		
-		local Subtotal 
 
-		Subtotal = largeTouch + toppingOneTouch
+		elseif (largeTouch == 6 and toppingTwoTouch == 1.75) then
+			local Subtotal 
+			Subtotal = largeTouch + toppingTwoTouch
+			print(Subtotal)
 
-		print(Subtotal)
-
-		return true
-
-	end
-
-	if (largeTouch == 6 and toppingTwoTouch == 1.75) then
-
-		local Subtotal 
-
-		Subtotal = largeTouch + toppingTwoTouch
-
-		print(Subtotal)
-
-		return true
-
-	end
-
-	if (largeTouch == 6  and toppingThreeTouch == 2.5) then
-
-		local Subtotal
-
-		Subtotal = largeTouch + toppingThreeTouch
+			return true
 		
-		print(Subtotal)
+
+		elseif (largeTouch == 6  and toppingThreeTouch == 2.5) then
+			local Subtotal
+			Subtotal = largeTouch + toppingThreeTouch	
+			print(Subtotal)
+			
+			return true
 		
-		return true
 
-	end
+		elseif (largeTouch == 6 and toppingFourTouch == 3.35) then
+			local Subtotal
+			Subtotal = largeTouch + toppingFourTouch
+			print(Subtotal)
 
-	if (largeTouch == 6 and toppingFourTouch == 3.35) then
-
-		local Subtotal
-
-		Subtotal = largeTouch + toppingFourTouch
-
-		print(Subtotal)
-
-		return true
-
-	end
-
+			return true
+		end
 end
 
 
